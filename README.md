@@ -32,15 +32,15 @@ Ace.jsで利用できるmodeファイル（SyntaxHighlighter）の『KAG』バ�
   <title>Ace Editor sample</title>
 </head>
 <body>
-  <div id="editor" style="height: 600px"></div>
+  <div id="editor" style="height: 800px; width: 600px"></div>
   <script src="./libs/ace.js"></script>
   <script src="./libs/mode-javascript.js"></script>
   <script src="./libs/mode-kag.js"></script>
   <script>
     // エディタ作成
-    ace.edit("editor");
+    var Editor = ace.edit("editor");
     // syntax highlight
-    const KAGMode = ace.require("ace/mode/kag").Mode;
+    var KAGMode = ace.require("ace/mode/kag").Mode;
     Editor.getSession().setMode(new KAGMode());
     Editor.setTheme("ace/theme/kag-dark");
     // or
