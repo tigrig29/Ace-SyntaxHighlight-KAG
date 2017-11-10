@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Ace Editor sample</title>
+</head>
+<body>
+  <div id="editor" style="height: 800px; width: 600px"></div>
+  <script src="./libs/ace.js"></script>
+  <script src="./libs/mode-javascript.js"></script>
+  <script src="./libs/mode-kag.js"></script>
+  <script>
+    // エディタ作成
+    var Editor = ace.edit("editor");
+    // 警告消去
+    Editor.$blockScrolling = Infinity;
+    // syntax highlight
+    var KAGMode = ace.require("ace/mode/kag").Mode;
+    Editor.getSession().setMode(new KAGMode());
+    Editor.setTheme("ace/theme/kag-dark");
+    // or
+    // Editor.setTheme("ace/theme/kag-simple");
+    Editor.setValue("こんにちは[l][cm]\n\n"+
+      "[bg storage=test.jpg time=300]\n\n"+
+      "@jump target=*hoge\n"+
+      "[s]\n\n\n"+
+      "*hoge|ほげほげ\n\n"+
+      "こんばんは。[l][r]\n\n"+
+      "さようなら[l][cm]\n\n"+
+      "[iscript]\n"+
+      "    tf.goodBye = \"さようなら\";\n"+
+      "    // TJS\n"+
+      "    System.inform(tf.goodBye);\n"+
+      "    // ティラノスクリプト\n"+
+      "    alert(tf.goodBye);\n"+
+      "[endscript]\n\n"+
+      "[s]\n", -1);
+  </script>
+</body>
+</html>
